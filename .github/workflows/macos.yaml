@@ -129,6 +129,7 @@ jobs:
       run: |
         export GOMODCACHE=~/gomodcache
         mkdir -p $GOMODCACHE
+        /usr/local/opt/ruby@2.4.10/bin/gem install ffi -v '1.9.18' -- --with-cflags="-Wno-error=implicit-function-declaration"
         bash ./datadog-agent-buildimages/macos/build_script.sh
 
     - name: Upload Agent .dmg
