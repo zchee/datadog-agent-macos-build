@@ -70,7 +70,7 @@ jobs:
 
     - name: Set up builder
       run: |
-        bash ./datadog-agent-buildimages/macos/builder_setup.sh
+        bash -x ./datadog-agent-buildimages/macos/builder_setup.sh
 
     # - name: Add certificates to temporary keychain
     #   env:
@@ -131,7 +131,7 @@ jobs:
         export GOMODCACHE=~/gomodcache
         mkdir -p $GOMODCACHE
         /usr/local/opt/ruby@2.4.10/bin/gem install ffi -v '1.9.18' -- --with-cflags="-Wno-error=implicit-function-declaration"
-        bash ./datadog-agent-buildimages/macos/build_script.sh
+        bash -x ./datadog-agent-buildimages/macos/build_script.sh
 
     - name: Upload Agent .dmg
       uses: actions/upload-artifact@v2
